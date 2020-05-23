@@ -1,0 +1,70 @@
+<!--
+  Copyright 2016 LogMeIn Inc
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="fincura-api-credentials">
+    <div class="form-row">
+        <label style="margin-left: 10px; margin-right: -10px;" for="node-config-input-creds_name"><i class="fa fa-tag"></i> <span data-i18n="fincura.creds.label.name"></span></label>
+        <input type="hidden" id="node-config-input-creds_name">
+    </div>
+    <div class="form-row">
+        <label style="margin-left: 10px; margin-right: -10px;" for="node-config-input-refresh_token"><i class="fa fa-key"></i> <span data-i18n="fincura.creds.label.refresh_token"></span></label>
+        <input type="password" id="node-config-input-refresh_token">
+    </div>
+</script>
+
+<script type="text/javascript">
+(function() {
+    RED.nodes.registerType('fincura-api-credentials',{
+        category: 'config',
+        defaults: {
+            creds_name: {value:""}
+        },
+        credentials: {
+            creds_name: {type: "text"},
+            refresh_token: {type: "password"}
+        },
+        label: function() {
+            return this.creds_name;
+        },
+        exportable: false,
+        oneditprepare: function() {
+            // var xivelyUserCredsConfigNodeId = this.id;
+            // var register = this._("xively.label.register");
+            // var c = this._("xively.creds.name");
+
+            // function showXivelyName(credsName) {
+            //     $("#node-config-input-screen_name").val(sn);
+            //     $("#node-config-twitter-row").html('<label><i class="fa fa-user"></i> '+credsName+'</label><span class="input-xlarge uneditable-input">'+credsName+'</span><input type="text" id="node-config-input-creds_name" value="'+credsName+'">');
+            // }
+
+            // if (!this.account_id || this.account_id === "") {
+
+            // } else {
+            //     if (this.credentials.creds_name) {
+            //         showXivelyName(this.credentials.creds_name);
+            //     } else {
+  
+            //     }
+            // }
+
+        },
+        oneditsave: function() {
+        },
+        oneditcancel: function(adding) {
+        }
+    });
+})();
+</script>
